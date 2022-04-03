@@ -9,3 +9,6 @@ crobat
 assetfinder
 amass
 jldc.me
+
+# usage
+recon target.com

@@ -1,7 +1,7 @@
 # sumbo
 My subdomain enumeration script. 7 ways
 
-# Tools
+# source
 
 subfinder
 findomain

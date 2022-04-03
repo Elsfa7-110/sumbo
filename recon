@@ -7,30 +7,29 @@ echo -e "\e[31m
 ██▄ █▄▄ ▄█ █▀░ █▀█ ░░█ ░░ ░█ ░█ █▄█
 coded by @ELSFA7-110@automotion bughunting@\n\e[0m"
 
-#------------------------------------------------#
 mkdir $1
 echo -e "subfinder \n"
-#------------------------------------------------#
+
 subfinder -d $1 -t 1000 -o $1/subfinder.txt
-#------------------------------------------------#
+
 echo -e "findomain \n"
-#------------------------------------------------#
+
 findomain --quiet -t $1 -u $1/findomain.txt
-#------------------------------------------------#
+
 echo -e "crobat \n"
 crobat -s $1 $DEBUG_ERROR | anew -q $1/crobat.txt
-#------------------------------------------------#
+
 echo -e "assetfinder \n"
 assetfinder -subs-only $1 -silent | anew -q $1/assetfinder.txt
-#------------------------------------------------#
+
 echo -e "github-subdomains \n"
 ./github-subdomains.py -t yourtoken -d $1 | anew -q $1/github.txt
-#------------------------------------------------#
+
 echo -e "amass \n"
 amass enum -active -brute -passive -d $1 -o $1/amass.txt
-#------------------------------------------------#
+
 echo -e "jldc \n"
 curl -s "https://jldc.me/anubis/subdomains/$1" | grep -Po "((http|https):\/\/)?(([\w.-]*)\.([\w]*)\.([A-z]))\w+" | anew -q $1/jldc.txt
 echo -e "Start Sort \n"
-───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
 cat $1/subfinder.txt $1/crobat.txt $1/findomain.txt $1/assetfinder.txt $1/github.txt $1/amass.txt $1/jldc.txt results/$1/subdomains.txt|sort -u|tee $1/Final-subs.txt

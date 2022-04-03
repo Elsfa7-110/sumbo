@@ -12,4 +12,4 @@ jldc.me
 httpx
 
 # usage
-recon target.com
+bash recon target.com

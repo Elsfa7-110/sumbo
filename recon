@@ -31,5 +31,4 @@ amass enum -active -brute -passive -d $1 -o $1/amass.txt
 echo -e "jldc \n"
 curl -s "https://jldc.me/anubis/subdomains/$1" | grep -Po "((http|https):\/\/)?(([\w.-]*)\.([\w]*)\.([A-z]))\w+" | anew -q $1/jldc.txt
 echo -e "Start Sort \n"
-
 cat $1/subfinder.txt $1/crobat.txt $1/findomain.txt $1/assetfinder.txt $1/github.txt $1/amass.txt $1/jldc.txt |sort -u|tee $1/Final-subs.txt

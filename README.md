@@ -9,6 +9,7 @@ crobat
 assetfinder
 amass
 jldc.me
+httpx
 
 # usage
 recon target.com
